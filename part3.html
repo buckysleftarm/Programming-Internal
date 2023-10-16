@@ -48,6 +48,8 @@
     <div id="div1">
     <h1 id="questionSpace"></h1>
     <h1 id="answerSpace"></h1><br>
+
+    <!--buttons either takes the user to a different page or takes the user to a different question / answer-->
     <button onclick="next()">Next Question</button><br><br>
     <button onclick="home()"><a href="index.html">Home Page</a></button>
     <h2 id="message"></h2>
@@ -60,6 +62,7 @@
         var answerSpace = document.getElementById('answerSpace') 
         var message = document.getElementById("message");
    
+        //variable which holds the data for the quiz questions and their answers 
         var quizQuestions = [ 
          {   
             question: "Question 1: How many Disney Princesses are there?", 
@@ -167,15 +170,21 @@
      
      var questionState =0; 
 
+     //the programming which gets the question and the answer to show up when the page is first opened up 
      questionSpace.innerHTML = quizQuestions[questionState]["question"]; 
      answerSpace.innerHTML = quizQuestions[questionState]["answer"]; 
 
+
+     //function that updates the question and answer from the one it is displaying to the next  
      function update() {
              questionState++ 
              questionSpace.innerHTML = quizQuestions[questionState]["question"];   
              answerSpace.innerHTML = quizQuestions[questionState]["answer"];
      }              
      
+
+     //function for the 'next question' button which when clicked relies on the update function to do most of the work. 
+     //this function for the button helps the question to switch from one to the next as well. 
      function next() {
         if(update) { 
              update()    

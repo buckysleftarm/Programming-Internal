@@ -46,8 +46,9 @@
     <br><br><br><br>
     <div id="div1">
     <h1 id="questionSpace"></h1>
-
     <input type="text" id="userInput" name="name" placeholder="Please Answer...."><br><br>
+
+    <!--The buttons for the user to click that do different parts for the quiz-->
     <button onclick="next()">Submit Answer</button><br><br>
     <button onclick="answers()"><a href="part3.html">See Answers</a></button>
     <button onclick="home()"><a href="index.html">Home Page</a></button>
@@ -61,10 +62,10 @@
         var questionSpace = document.getElementById("questionSpace"); 
         var userInput = document.getElementById("userInput");
         var message = document.getElementById("message"); 
-        
         var questionState = 0; 
         var score = 0; 
-   
+        
+        //Variable that holds all of the quiz questions and the answers
         var quizQuestions = [ 
          {   
             question: "Question 1: How many Disney Princesses are there? ", 
@@ -169,9 +170,13 @@
         }, 
 
         ];
-
+ 
+    
      questionSpace.innerHTML = quizQuestions[questionState]["question"]; 
      
+
+     //the function for the 'submit answer' button. This function holds the data for when the user clicks the 
+     //submit button and it will keep track of the score andother data. It draws information from the 'update'  funtion 
      function next() {
         if(questionState == 19) {
                  userInput.value == quizQuestions[questionState]['answer']
@@ -186,6 +191,10 @@
              userInput.value= "";  
      };   
 
+
+     //the other part of the next function. When the 'submit answer' button is pressed this function is called and 
+     //has the programming for the score to show up at the bottom of the page. It also draws information from the 
+     //update funtion. 
      function next() {
          if(userInput.value == quizQuestions[questionState]['answer']) { 
              score++ 
@@ -196,6 +205,9 @@
          }   
      }
 
+
+     ///the first part of the update function which changes the question from the previous one to the next when 
+     //an answer is entered into the input field. It also stores the information of the quiz score. 
      function update() {
         if(questionState == 19) {
                  message.innerHTML = "You have scored " +  score + " points. "
@@ -204,7 +216,10 @@
              questionSpace.innerHTML = quizQuestions[questionState]["question"];  
              userInput.value= "";  
      }              
-     
+    
+     //the other part of the update function which controls the alerts for the quiz. If the answer is correct it will
+     //say 'You are correct' and will change the question to the next one and does the same for if the question is wrong 
+     //but the alert message changes to 'You are wrong'. 
      function update() { 
          if(userInput.value == quizQuestions[questionState]['answer']) {
             alert("You are correct"); 
