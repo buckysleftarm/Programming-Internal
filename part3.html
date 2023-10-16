@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal</title>
+    <style>
+       body {
+            background-image: url(Mickey\ Mouse.jpg); 
+            text-align: center; 
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #div1 {
+            background-color: rgb(253, 255, 147);
+            height: 380px; 
+            width: 1263px; 
+            float: left; 
+            font-size: large; 
+            font-family: cursive; 
+            text-align: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        button {
+            color: rgb(125, 44, 34); 
+            background-color:  rgb(223, 87, 69);
+            height: 50px;
+            width: 100px; 
+            text-decoration: none;
+            text-decoration-color: rgb(223, 87, 69);
+        }
+
+        #userInput {
+            width: 500px; 
+            height: 30px;
+            
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <br><br><br><br>
+    <div id="div1">
+    <h1 id="questionSpace"></h1>
+    <h1 id="answerSpace"></h1><br>
+    <button onclick="next()">Next Question</button><br><br>
+    <button onclick="home()"><a href="index.html">Home Page</a></button>
+    <h2 id="message"></h2>
+    </div><br><br>
+ 
+    <script>
+
+        //Variables to store specific elements from the HTML
+        var questionSpace = document.getElementById("questionSpace");
+        var answerSpace = document.getElementById('answerSpace') 
+        var message = document.getElementById("message");
+   
+        var quizQuestions = [ 
+         {   
+            question: "Question 1: How many Disney Princesses are there?", 
+            answer: "Answer: 13",  
+         }, 
+   
+         {
+            question: " Question 2: Who was the first Disney character ever created?", 
+            answer: "Answer: Mickey Mouse", 
+        }, 
+   
+        { 
+            question: "Question 3: What does Hakuna Matata mean?", 
+            answer: "Answer: No Worries", 
+
+        }, 
+   
+        { 
+            question: "Question 4: What is Flynn Ryders real name in 'Tangled'? ", 
+            answer: "Answer: Eugene Fitzherbert", 
+        }, 
+
+        { 
+            question: "Question 5: Finish the lyric: 'We don't talk about ____'  ", 
+            answer: "Answer: Bruno",  
+        }, 
+
+        { 
+            question: "Question 6: What is the name of Prince Eric's dog in 'The Little Mermaid'? ", 
+            answer: "Answer: Max",   
+        }, 
+
+        { 
+            question: "Question 7: In 'High School Musical', what is the name of Troy and Gabriellas school? ", 
+            answer: "Answer: East High",  
+        }, 
+
+        {  
+            question: "Question 8: In 'The Lion King', what is the name of Simbas father?", 
+            answer: "Answer: Mufasa", 
+        }, 
+
+        { 
+            question: "Question 9: What is the name of the snowman from 'Frozen'?", 
+            answer: "Answer: Olaf", 
+        }, 
+
+        {
+            question: "Question 10: What is the name of the demigod in 'Moana'? ", 
+            answer: "Answer: Maui", 
+        }, 
+
+        {
+            question: "Question 11: What type of fish is Nemo in 'Finding Nemo'?", 
+            answer: "Answer: Clownfish", 
+        }, 
+
+        {
+            question: "Question 12: In the movie 'Frozen', what is the name of the villain?", 
+            answer: "Answer: Prince Hans", 
+
+        }, 
+
+        {
+            question: "Question 13: What type of animal is Robin Hood?", 
+            answer: "Answer: Fox", 
+        }, 
+
+        {
+            question: "Question 14: How many wishes does Genie grant Aladdin in the movie 'Aladdin'?", 
+            answer: "Answer: 3", 
+        },
+
+        {
+            question: "Question 15: Finish the movie title: 'Snow White and the ____ _____. '", 
+            answer: "Answer: Seven Dwarfs", 
+        },
+
+        {
+            question: "Question 16: What is the first name of the kid who owns Woody and Buzz in 'Toy Story'? ", 
+            answer: "Answer: Andy", 
+        },
+
+        {
+            question: "Question 17: Who is the main antagonist in 'The Little Mermaid'? ", 
+            answer: "Answer: Ursula"
+        }, 
+
+        { 
+            question: "Question 18: What is the name of Rapunzels chameleon friend? ", 
+            answer: "Answer: Pascal"
+        }, 
+
+        { 
+            question: "Question 19: Finish the lyric: Do you wanna build a ______", 
+            answer: "Answer: Snowman"
+        }, 
+
+        {
+            question: "Question 20: True or false? Pinocchios nose grows longer when he lies?", 
+            answer: "Answer: True"
+        }, 
+
+        ];
+     
+     var questionState =0; 
+
+     questionSpace.innerHTML = quizQuestions[questionState]["question"]; 
+     answerSpace.innerHTML = quizQuestions[questionState]["answer"]; 
+
+     function update() {
+             questionState++ 
+             questionSpace.innerHTML = quizQuestions[questionState]["question"];   
+             answerSpace.innerHTML = quizQuestions[questionState]["answer"];
+     }              
+     
+     function next() {
+        if(update) { 
+             update()    
+         }  
+     }
+  </script>
+
+</body>
+</html>
