@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal</title>
+    <style>
+       body {
+            background-image: url(Mickey\ Mouse.jpg); 
+            text-align: center; 
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #div1 {
+            background-color: rgb(253, 255, 147);
+            height: 395px; 
+            width: 1263px; 
+            float: left; 
+            font-size: large; 
+            font-family: cursive; 
+            text-align: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        button {
+            color: rgb(125, 44, 34); 
+            background-color: rgb(223, 87, 69) ;
+            height: 50px;
+            width: 100px; 
+            text-decoration: none;
+        }
+
+        #userInput {
+            width: 500px; 
+            height: 30px;
+            
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <br><br><br><br>
+    <div id="div1">
+    <h1 id="questionSpace"></h1>
+
+    <input type="text" id="userInput" name="name" placeholder="Please Answer...."><br><br>
+    <button onclick="next()">Submit Answer</button><br><br>
+    <button onclick="answers()"><a href="part3.html">See Answers</a></button>
+    <button onclick="home()"><a href="index.html">Home Page</a></button>
+
+    <h2 id="message"></h2>
+    </div><br><br>
+ 
+    <script>
+
+        //Variables to store specific elements from the HTML
+        var questionSpace = document.getElementById("questionSpace"); 
+        var userInput = document.getElementById("userInput");
+        var message = document.getElementById("message"); 
+        
+        var questionState = 0; 
+        var score = 0; 
+   
+        var quizQuestions = [ 
+         {   
+            question: "Question 1: How many Disney Princesses are there? ", 
+            answer: "13",  
+         }, 
+   
+         {
+            question: " Question 2: Who was the first Disney character ever created?", 
+            answer: "Mickey Mouse", 
+        }, 
+   
+        { 
+            question: "Question 3: What does Hakuna Matata mean?", 
+            answer: "No Worries", 
+
+        }, 
+   
+        { 
+            question: "Question 4: What is Flynn Ryders real name in 'Tangled'? ", 
+            answer: "Eugene Fitzherbert", 
+        }, 
+
+        { 
+            question: "Question 5: Finish the lyric: 'We don't talk about ____'  ", 
+            answer: "Bruno",  
+        }, 
+
+        { 
+            question: "Question 6: What is the name of Prince Eric's dog in 'The Little Mermaid'? ", 
+            answer: "Max",   
+        }, 
+
+        { 
+            question: "Question 7: In 'High School Musical', what is the name of Troy and Gabriellas school? ", 
+            answer: "East High",  
+        }, 
+
+        {  
+            question: "Question 8: In 'The Lion King', what is the name of Simbas father?", 
+            answer: "Mufasa", 
+        }, 
+
+        { 
+            question: "Question 9: What is the name of the snowman from 'Frozen'?", 
+            answer: "Olaf", 
+        }, 
+
+        {
+            question: "Question 10: What is the name of the demigod in 'Moana'? ", 
+            answer: "Maui", 
+        }, 
+
+        {
+            question: "Question 11: What type of fish is Nemo in 'Finding Nemo'?", 
+            answer: "Clownfish", 
+        }, 
+
+        {
+            question: "Question 12: In the movie 'Frozen', what is the name of the villain?", 
+            answer: "Prince Hans", 
+
+        }, 
+
+        {
+            question: "Question 13: What type of animal is Robin Hood?", 
+            answer: "Fox", 
+        }, 
+
+        {
+            question: "Question 14: How many wishes does Genie grant Aladdin in the movie 'Aladdin'?", 
+            answer: "3", 
+        },
+
+        {
+            question: "Question 15: Finish the movie title: 'Snow White and the ____ _____. '", 
+            answer: "Seven Dwarfs", 
+        },
+
+        {
+            question: "Question 16: What is the first name of the kid who owns Woody and Buzz in 'Toy Story'? ", 
+            answer: "Andy", 
+        },
+
+        {
+            question: "Question 17: Who is the main antagonist in 'The Little Mermaid'? ", 
+            answer: "Ursula"
+        }, 
+
+        { 
+            question: "Question 18: What is the name of Rapunzels chameleon friend? ", 
+            answer: "Pascal"
+        }, 
+
+        { 
+            question: "Question 19: Finish the lyric: Do you wanna build a ______", 
+            answer: "Snowman"
+        }, 
+
+        {
+            question: "Question 20: True or false? Pinocchios nose grows longer when he lies?", 
+            answer: "True"
+        }, 
+
+        ];
+
+     questionSpace.innerHTML = quizQuestions[questionState]["question"]; 
+     
+     function next() {
+        if(questionState == 19) {
+                 userInput.value == quizQuestions[questionState]['answer']
+                 message.innerHTML = "Your have scored " +  score + " points. " 
+                 update()
+                 score++
+             } else {
+                userInput.value == quizQuestions[questionState]['answer']
+                update()
+             }
+             questionSpace.innerHTML = quizQuestions[questionState]["question"];  
+             userInput.value= "";  
+     };   
+
+     function next() {
+         if(userInput.value == quizQuestions[questionState]['answer']) { 
+             score++ 
+             message.innerHTML = "You have scored " + score + " points. "
+             update()    
+         } else { 
+            update() 
+         }   
+     }
+
+     function update() {
+        if(questionState == 19) {
+                 message.innerHTML = "You have scored " +  score + " points. "
+             }
+             questionState++ 
+             questionSpace.innerHTML = quizQuestions[questionState]["question"];  
+             userInput.value= "";  
+     }              
+     
+     function update() { 
+         if(userInput.value == quizQuestions[questionState]['answer']) {
+            alert("You are correct"); 
+             questionState++ 
+             questionSpace.innerHTML = quizQuestions[questionState]["question"];  
+             userInput.value= "";     
+         } else { 
+             alert("You are wrong"); 
+             questionState++ 
+             questionSpace.innerHTML = quizQuestions[questionState]["question"]; 
+             userInput.value= ""; 
+         } 
+     };  
+  </script>
+
+</body>
+</html>
